@@ -1,0 +1,47 @@
+# Meshy Combat Range
+
+An **in-engine firing demo** of a realistic, multi-theme combat character roster — every character generated via the **Meshy AI API**, rigged + multi-clip animated, and validated in **Godot 4.6.3** (the same engine the Gogi game pipeline targets). This is the Mode-A roster preview: what a pre-staged realistic-character library would actually ship.
+
+## ▶ Play it
+
+**[Launch the demo »](https://joseb33w.github.io/meshy-combat-range/)** — loads in the browser, works on phone (give it ~10–15s on first load; it's a real game engine).
+
+- **Pick a character** (bottom row) — 4 heroes / 4 enemies across 6 themes
+- **Switch clips** — idle / walk / run / jump / crouch / walk-back / dodge / aim / fire / reload / hit / death (+ victory for heroes)
+- **FIRE** — the weapon actually fires: muzzle flash + tracer, colored per weapon
+- **Drag** to orbit
+
+## The roster — 8 characters, 6 themes
+
+| Character | Theme | Role | Weapon |
+|---|---|---|---|
+| Wasteland Survivor | Post-apocalyptic | Hero | Heavy pistol |
+| Spec-Ops Soldier | Modern military | Hero | Assault rifle |
+| Star Marine | Sci-fi | Hero | Plasma rifle |
+| Gunslinger | Western | Hero | Revolver |
+| Raider Gunner | Post-apocalyptic | Enemy | Sawed-off shotgun |
+| Alien Stalker | Sci-fi horror | Enemy | Bio-energy blaster |
+| Cyber Enforcer | Cyberpunk | Enemy | Arm-cannon |
+| Infected Trooper | Horror | Enemy | Rusted rifle |
+
+## What each character is
+
+- **24-bone Mixamo rig**, **12–13 animation clips merged into one GLB** (heroes 13 with a victory emote, enemies 12)
+- A **separate weapon prop** attached to the right-hand bone, firing down the barrel with a muzzle-flash + tracer VFX
+- Generated realistic + PBR, remeshed, rigged, ~15k tris, 1K webp textures
+- **Every clip verified to drive the rig** in headless Godot 4.6.3 (24 bones, all clips animate)
+
+## How it was built
+
+```
+per character:  text-to-3D (forced T-pose) → PBR refine → remesh (<300k faces)
+                → auto-rig (Mixamo) → 12–13 animation clips
+                → merge into one AnimationLibrary (headless Godot)
+                → gltf-transform (1K webp, meshopt off) → validate
+per weapon:     text-to-3D → refine → optimize → attach to RightHand bone
+demo:           Godot 4.6.3, gl_compatibility, nothreads web export
+```
+
+The **Raider** is a cost-saving proof: it reuses the Survivor's rig + all clips with only a retexture albedo swapped in — the "cheap variant" path (10 cr, no re-rig).
+
+_Isolated proof-of-concept — no app integration yet. Generated on a Meshy **Studio** plan → owned + host-legal._
