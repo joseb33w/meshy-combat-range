@@ -15,11 +15,11 @@ An **in-engine firing demo** of a realistic, multi-theme combat character roster
 
 | Character | Theme | Role | Weapon |
 |---|---|---|---|
-| Wasteland Survivor | Post-apocalyptic | Hero | Heavy pistol |
+| Vanguard | Heavy assault | Hero | Heavy pistol |
 | Spec-Ops Soldier | Modern military | Hero | Assault rifle |
 | Star Marine | Sci-fi | Hero | Plasma rifle |
 | Gunslinger | Western | Hero | Revolver |
-| Raider Gunner | Post-apocalyptic | Enemy | Sawed-off shotgun |
+| War Droid | Rogue machine | Enemy | Sawed-off shotgun |
 | Alien Stalker | Sci-fi horror | Enemy | Bio-energy blaster |
 | Cyber Enforcer | Cyberpunk | Enemy | Arm-cannon |
 | Infected Trooper | Horror | Enemy | Rusted rifle |
@@ -27,9 +27,10 @@ An **in-engine firing demo** of a realistic, multi-theme combat character roster
 ## What each character is
 
 - **24-bone Mixamo rig**, **12–13 animation clips merged into one GLB** (heroes 13 with a victory emote, enemies 12)
-- A **separate weapon prop** attached to the right-hand bone, firing down the barrel with a muzzle-flash + tracer VFX
-- Generated realistic + PBR, remeshed, rigged, ~15k tris, 1K webp textures
-- **Every clip verified to drive the rig** in headless Godot 4.6.3 (24 bones, all clips animate)
+- A **separate weapon prop** driven from the right-hand bone's pose (orthonormalized, so it never inherits skeleton scale → no stretch), firing forward down the barrel with a muzzle-flash + tracer VFX
+- All clips converted to **in-place** (root motion zeroed) so characters stay centered
+- Generated realistic + PBR, remeshed, rigged, 1K webp textures
+- **Every clip verified to drive the rig** in Godot 4.6.3 (24 bones, all clips animate)
 
 ## How it was built
 
@@ -42,6 +43,6 @@ per weapon:     text-to-3D → refine → optimize → attach to RightHand bone
 demo:           Godot 4.6.3, gl_compatibility, nothreads web export
 ```
 
-The **Raider** is a cost-saving proof: it reuses the Survivor's rig + all clips with only a retexture albedo swapped in — the "cheap variant" path (10 cr, no re-rig).
+Characters are intentionally hard-surface / armored (no loose flowing cloth) so the auto-rig never stretches the mesh on extreme poses.
 
 _Isolated proof-of-concept — no app integration yet. Generated on a Meshy **Studio** plan → owned + host-legal._
