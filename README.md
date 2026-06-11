@@ -11,18 +11,20 @@ An **in-engine firing demo** of a realistic, multi-theme combat character roster
 - **FIRE** — the weapon actually fires: muzzle flash + tracer, colored per weapon
 - **Drag** to orbit
 
-## The roster — 8 characters, 6 themes
+## The roster — 8 characters, 8 themes
 
 | Character | Theme | Role | Weapon |
 |---|---|---|---|
 | Vanguard | Heavy assault | Hero | Heavy pistol |
 | Spec-Ops Soldier | Modern military | Hero | Assault rifle |
-| Star Marine | Sci-fi | Hero | Plasma rifle |
-| Gunslinger | Western | Hero | Revolver |
-| War Droid | Rogue machine | Enemy | Sawed-off shotgun |
-| Alien Stalker | Sci-fi horror | Enemy | Bio-energy blaster |
+| Specter | Stealth ops | Hero | Plasma rifle |
+| Warden | Guardian knight | Hero | Sawed-off shotgun |
 | Cyber Enforcer | Cyberpunk | Enemy | Arm-cannon |
-| Infected Trooper | Horror | Enemy | Rusted rifle |
+| Alien Stalker | Sci-fi horror | Enemy | — (melee) |
+| Infected Trooper | Horror | Enemy | — (melee) |
+| Reaver | Mutant brute | Enemy | — (claws) |
+
+Weapons are mounted to the right-hand bone and aimed down the **forearm** direction (not the wrist twist), so guns point naturally in every pose; the three creatures are melee (no weapon).
 
 ## What each character is
 
